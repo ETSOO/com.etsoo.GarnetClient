@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\etsoo.snk</AssemblyOriginatorKeyFile>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>ETSOO SmartERP NextGen Team</Authors>
     <Company>ETSOO / 亿速思维</Company>
     <Description>Garnet client based on StackExchange.Redis
