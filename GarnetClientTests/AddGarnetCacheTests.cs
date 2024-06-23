@@ -151,11 +151,22 @@ namespace GarnetClientTests
         public async Task TestCache()
         {
             var key = "TestCache";
+            var value = "Hello, world!";
+            var ts = TimeSpan.FromSeconds(0.2);
 
-            await cache.SetAsync(key, [0x01, 0x02, 0x03, 0x04, 0x05, 0x06], new DistributedCacheEntryOptions
-            {
-                SlidingExpiration = TimeSpan.FromSeconds(0.2)
-            });
+            await cache.SetStringAsync(key, value, new DistributedCacheEntryOptions { SlidingExpiration = ts });
+
+            await Task.Delay(100);
+            var savedValue = await cache.GetStringAsync(key);
+            Assert.AreEqual(value, savedValue);
+
+            await Task.Delay(101);
+            savedValue = await cache.GetStringAsync(key);
+            Assert.AreEqual(value, savedValue);
+
+            await Task.Delay(201);
+            savedValue = await cache.GetStringAsync(key);
+            Assert.IsNull(savedValue);
         }
     }
 }

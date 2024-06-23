@@ -15,7 +15,7 @@ jobs:
           include-prerelease: true
 
       # Publish
-      - name: Publish com.etsoo.Alipay on version change
+      - name: Publish com.etsoo.GarnetClient on version change
         uses: alirezanet/publish-nuget@v3.1.0
         with:
           # Filepath of the project to be packaged, relative to root of repository

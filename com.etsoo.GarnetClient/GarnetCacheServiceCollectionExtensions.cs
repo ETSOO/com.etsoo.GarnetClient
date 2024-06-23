@@ -23,7 +23,8 @@ namespace com.etsoo.GarnetClient
             // Inject the GarnetCacheOptions
             services.Configure(setupAction);
 
-            // Inject the ConnectionMultiplexer
+            // Inject the IConnectionMultiplexer
+            // Means the IConnectionMultiplexer is ready to use in your code if you need
             services.AddSingleton(serviceProvider =>
             {
                 var options = serviceProvider.GetRequiredService<IOptions<GarnetCacheOptions>>().Value;
